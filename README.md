@@ -74,7 +74,7 @@ $like->save()
 $post->delete(); // SQLSTATE[23000]: Integrity constraint violation
 ```
 
-To avoid this error and provide the user with some more helpful feedback, we can use the `DeleteableRequest` class.
+To avoid this error and provide the user with some more helpful feedback, we can use the `DeletableRequest` class.
 
 ```php
 <?php
@@ -82,18 +82,18 @@ To avoid this error and provide the user with some more helpful feedback, we can
 namespace App\Http\Controllers;
 
 use App\Post;
-use RobotsInside\Deletable\Requests\DeleteableRequest;
+use RobotsInside\Deletable\Requests\DeletableRequest;
 
 class PostController extends Controller
 {
     /**
      * Remove the specified resource from storage.
      *
-     * @param DeleteableRequest $request
+     * @param DeletableRequest $request
      * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteableRequest $request, Post $post)
+    public function destroy(DeletableRequest $request, Post $post)
     {
         $post->delete();
 
@@ -165,9 +165,9 @@ Below is an example for routes with more than one route binding. This is all tha
 
 namespace App\Http\Requests;
 
-use RobotsInside\Deletable\Requests\DeleteableRequest;
+use RobotsInside\Deletable\Requests\DeletableRequest;
 
-class DeletePostRequest extends DeleteableRequest
+class DeletePostRequest extends DeletableRequest
 {
     protected function getRouteModel()
     {
@@ -190,11 +190,11 @@ class PostContoller extends Controller
     /**
     * Remove the specified resource from storage.
     *
-    * @param RobotsInside\Deletable\Requests\DeleteableRequest;
+    * @param RobotsInside\Deletable\Requests\DeletableRequest;
     * @param  App\Post $post
     * @return \Illuminate\Http\Response
     */
-    public function destroy(DeleteableRequest $request, Post $post)
+    public function destroy(DeletableRequest $request, Post $post)
     {
         $post->delete();
 
