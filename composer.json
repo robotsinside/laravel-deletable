@@ -1,0 +1,45 @@
+{
+    "name": "robotsinside/laravel-deletable",
+    "description": "Provides a way to safeguard the soft deletion of models with related entities.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rob Francken",
+            "email": "robertfrancken@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RobotsInside\\Deletable\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "illuminate/database": ">=5.5",
+        "illuminate/support": ">=5.5",
+        "illuminate/http": ">=5.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RobotsInside\\Deletable\\DeletableServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.1",
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php",
+            "tests/Models/Post.php",
+            "tests/Models/PostInvalidConfig.php",
+            "tests/Models/PostCascade.php",
+            "tests/Models/Like.php",
+            "tests/Models/Author.php",
+            "tests/Factories/PostFactory.php",
+            "tests/Factories/AuthorFactory.php"
+        ]
+    }
+}
