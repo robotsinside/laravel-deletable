@@ -37,7 +37,7 @@ use RobotsInside\Deletable\Deletable;
 
 class Post extends Model
 {
-    use Deletable;
+    use Deletable, SoftDeletes;
 
     protected function deletableConfig()
     {
@@ -125,7 +125,7 @@ Now we can display the Integrity contraint violation as validation errors instea
 
 A `Post` implements a `BelongsToMany` relation with an `Author`. The `Post` model leverages Laravel's built in `SoftDeletes` trait. If the `Post` is related to one or more authors, soft deleting the post succeeds, even if a foreign key constraint exists at the database level.
 
-In some situations this might not be what you want and can be avoided by using the `softDeletable` method.
+In some situations this might not be what you want and can be avoided by using the `deletable` method.
 
 We have a couple of options to handle this.
 
@@ -147,7 +147,7 @@ if($post->deletable()) {
 
 ### Validation
 
-To validate delete requests, you can type-hint the provided `RobotsInside\Deletable\Requests\DeleteableRequest` class in your controller method.
+To validate delete requests, you can type-hint the provided `RobotsInside\Deletable\Requests\DeletableRequest` class in your controller method.
 
 This class will attempt to automatically resolve the model's route binding, however it currently only supports a single URI route binding. If your route has more than one binding, you must define a `getRouteModel` method which returns the models' route binding.
 
