@@ -286,6 +286,18 @@ class Post extends Model
 }
 ```
 
+## Testing
+
+Run the provided tests:
+
+```sh
+composer test
+```
+
+## Security
+
+If you discover any vulnerabilities, please email robertfrancken@gmail.com instead of using the issue tracker.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

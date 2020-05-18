@@ -3,11 +3,12 @@
 namespace RobostsInside\Deletable\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use RobotsInside\Deletable\Deletable;
 
 class Post extends Model
 {
-    use Deletable;
+    use Deletable, SoftDeletes;
 
     protected $connection = 'testbench';
 

@@ -41,5 +41,8 @@
             "tests/Factories/PostFactory.php",
             "tests/Factories/AuthorFactory.php"
         ]
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }

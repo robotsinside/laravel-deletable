@@ -12,11 +12,6 @@ class TestCase extends Orchestra\Testbench\TestCase
         parent::setUp();
 
         Model::unguard();
-
-        $this->artisan('migrate', [
-            '--database' => 'testbench',
-            '--realpath' => realpath(__DIR__ . '/../migrations'),
-        ]);
     }
 
     protected function getPackageProviders($app)
@@ -61,13 +56,16 @@ class TestCase extends Orchestra\Testbench\TestCase
 
         Schema::create('likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('post_id')->foreign('post_id')->references('id')->on('posts');
+            $table->unsignedInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
         });
 
         Schema::create('author_post', function (Blueprint $table) {
-            $table->unsignedInteger('author_id')->foreign()->references('id')->on('authors');
-            $table->unsignedInteger('post_id')->foreign()->references('id')->on('posts');
+            $table->unsignedInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('authors');
+            $table->unsignedInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts');
             $table->primary(['author_id', 'post_id']);
         });
     }

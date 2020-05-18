@@ -27,7 +27,7 @@ class ExceptionTest extends TestCase
 
         $this->expectException(UnsafeDeleteException::class);
 
-        $post->safeSoftDelete();
+        $post->safeDelete();
     }
 
     /** @test */
@@ -40,6 +40,6 @@ class ExceptionTest extends TestCase
 
         $this->expectException(InvalidConfigException::class);
 
-        $post->safeSoftDelete();
+        $post->safeDelete();
     }
 }

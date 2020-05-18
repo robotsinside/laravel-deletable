@@ -23,7 +23,7 @@ class UsageTest extends TestCase
 
         $post->authors()->attach($author);
 
-        $this->assertFalse($post->Deletable());
+        $this->assertFalse($post->deletable());
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class UsageTest extends TestCase
     {
         $post = factory(Post::class)->create();
 
-        $this->assertTrue($post->Deletable());
+        $this->assertTrue($post->deletable());
     }
 
     /** @test */
@@ -43,7 +43,7 @@ class UsageTest extends TestCase
         $post->authors()->attach($author);
         $authors = $post->authors;
 
-        $post->safeSoftDelete();
+        $post->safeDelete();
 
         $post->load('authors');
 
