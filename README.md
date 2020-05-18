@@ -127,10 +127,6 @@ A `Post` implements a `BelongsToMany` relation with an `Author`. The `Post` mode
 
 In some situations this might not be what you want and can be avoided by using the `deletable` method.
 
-We have a couple of options to handle this.
-
-#### Option 1
-
 ```php
 <?php
 
@@ -149,7 +145,7 @@ if($post->deletable()) {
 
 To validate delete requests, you can type-hint the provided `RobotsInside\Deletable\Requests\DeletableRequest` class in your controller method.
 
-This class will attempt to automatically resolve the model's route binding, however it currently only supports a single URI route binding. If your route has more than one binding, you must define a `getRouteModel` method which returns the models' route binding.
+This class will attempt to automatically resolve the model's route binding, however it currently only supports a single URI route binding. 
 
 ```sh
 +-----------+--------------+---------------+----------------------------------------------   
@@ -157,6 +153,8 @@ This class will attempt to automatically resolve the model's route binding, howe
 +-----------+--------------+---------------+----------------------------------------------
 | DELETE    | posts/{post} | posts.destroy | App\Http\Controllers\PostController@destroy   
 ```
+
+If your route has more than one binding, such as `authors/{author}/posts/{post}`, you'll need to create your own form request, which extends `DeletableRequest` and define a `getRouteModel` method which returns the models' route binding.
 
 Below is an example for routes with more than one route binding. This is all that is required for validation to kick in.
 
@@ -183,6 +181,8 @@ As before, type-hint the extended form request in your controller.
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DeletePostRequest;
+
 class PostContoller extends Controller
 {
     ...
@@ -190,11 +190,11 @@ class PostContoller extends Controller
     /**
     * Remove the specified resource from storage.
     *
-    * @param RobotsInside\Deletable\Requests\DeletableRequest;
+    * @param  App\Http\Requests\DeletePostRequest;
     * @param  App\Post $post
     * @return \Illuminate\Http\Response
     */
-    public function destroy(DeletableRequest $request, Post $post)
+    public function destroy(DeletePostRequest $request, Post $post)
     {
         $post->delete();
 
