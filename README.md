@@ -1,5 +1,7 @@
 # Laravel Deletable
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/robotsinside/laravel-deletable.svg?style=flat-square)](https://packagist.org/packages/robotsinside/laravel-deletable)
+
 This package can be used to gracefully handle the deletion of Eloquent models which are related to other models through `HasMany`, `BelongsToMany` or `MorphMany` relationships.
 
 It provides a number of helpful additions:
