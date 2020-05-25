@@ -4,7 +4,6 @@ namespace RobotsInside\Deletable;
 
 use Exception;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use RobotsInside\Deletable\Exceptions\InvalidConfigException;
 use RobotsInside\Deletable\Exceptions\UnsafeDeleteException;
 
