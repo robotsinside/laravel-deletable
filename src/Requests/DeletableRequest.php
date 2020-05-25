@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use RobotsInside\Deletable\Rules\DeletableRule;
 
-class DeleteableRequest extends FormRequest
+class DeletableRequest extends FormRequest
 {
     /**
      * @var \Illuminate\Http\Request
