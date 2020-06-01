@@ -1,6 +1,6 @@
 {
     "name": "robotsinside/laravel-deletable",
-    "description": "Provides a way to safeguard the soft deletion of models with related entities.",
+    "description": "Gracefully handle deletion of Eloquent models with related entities.",
     "license": "MIT",
     "authors": [
         {
