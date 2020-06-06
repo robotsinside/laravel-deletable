@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/robotsinside/laravel-deletable.svg?style=flat-square)](https://packagist.org/packages/robotsinside/laravel-deletable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This package can be used to gracefully handle the deletion of Eloquent models which are related to other models through `HasMany`, `BelongsToMany` or `MorphMany` relationships.
+This package can be used to gracefully handle the deletion of Eloquent models which are related to other models through `HasOne`, `HasMany`, `BelongsTo`, `BelongsToMany` or `Morph*` relationships.
 
 It provides a number of helpful additions:
 
@@ -27,7 +27,7 @@ It provides a number of helpful additions:
 
 Auto-discovery is enabled, so this step can be skipped.
 
-## General usage
+## Usage
 
 Use the `RobotsInside\Deletable\Deletable` trait in your models. You must also define a protected `deletableConfig()` method which returns the configuration array.
 
@@ -46,7 +46,6 @@ class Post extends Model
     protected function deletableConfig()
     {
         return [
-            'mode' => 'exception',
             'relations' => [
                 'authors',
             ]
