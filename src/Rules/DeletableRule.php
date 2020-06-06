@@ -78,5 +78,9 @@ class DeletableRule implements Rule
         if(Str::contains($this->relation, 'HasMany')) {
             return 'has one or more';
         }
+
+        if(Str::contains($this->relation, 'Morph')) {
+            return 'is associated with one or more';
+        }
     }
 }
