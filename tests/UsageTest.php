@@ -12,7 +12,7 @@ class UsageTest extends TestCase
     {
         parent::setUp();
 
-        $this->withFactories(realpath(__DIR__).'/Factories');
+        $this->withFactories(realpath(__DIR__) . '/Factories');
     }
 
     /** @test */
@@ -50,8 +50,8 @@ class UsageTest extends TestCase
         $this->assertCount(0, $post->authors);
         $this->assertNotNull($post->deleted_at);
 
-        foreach($authors as $author) {
-            if(in_array('deleted_at', $author->getAttributes())) {
+        foreach ($authors as $author) {
+            if (in_array('deleted_at', $author->getAttributes())) {
                 $this->assertNotNull($author->deleted_at);
             } else {
                 $this->assertNull(Author::find($author->id));

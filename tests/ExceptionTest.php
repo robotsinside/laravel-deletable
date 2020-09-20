@@ -14,7 +14,7 @@ class ExceptionTest extends TestCase
     {
         parent::setUp();
 
-        $this->withFactories(realpath(__DIR__).'/Factories');
+        $this->withFactories(realpath(__DIR__) . '/Factories');
     }
 
     /** @test */
