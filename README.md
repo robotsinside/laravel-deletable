@@ -16,6 +16,8 @@ It provides a number of helpful additions:
 
 ## Installation
 
+Depending on which version of Laravel you're on, you may need to specify which version to install.
+
 | Laravel Version | Package Version |
 |:---------------:|:---------------:|
 |       8.0       |      ^1.0       |
