@@ -16,6 +16,11 @@ It provides a number of helpful additions:
 
 ## Installation
 
+| Laravel Version | Package Version |
+|:---------------:|:---------------:|
+|       8.0       |      ^1.0       |
+|       7.0       |      ^0.1       |
+
 1. Run `composer require robotsinside/laravel-deletable`.
 
 2. Optionally register the service provider in `config/app.php`
