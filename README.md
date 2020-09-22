@@ -314,7 +314,7 @@ If you discover any vulnerabilities, please email robertfrancken@gmail.com inste
 
 I have a problem. My coffee bean supply is running low. The thought of running out completely is making me sweat bullets. If you don't mind, I'd appreciate your support.
 
-<a href="https://www.buymeacoffee.com/robfrancken" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style="max-width: 30%"></a>
+<a href="https://www.buymeacoffee.com/robfrancken" target="_blank" width="50"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" width="200" alt="Buy Me A Coffee"></a>
 
 ## License
 
