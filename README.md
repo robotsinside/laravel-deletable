@@ -310,6 +310,12 @@ composer test
 
 If you discover any vulnerabilities, please email robertfrancken@gmail.com instead of using the issue tracker.
 
+## Coffee Time
+
+I have a problem. My coffee bean supply is running low. The thought of running out completely is making me sweat bullets. If you don't mind, I'd appreciate your support.
+
+<a href="https://www.buymeacoffee.com/robfrancken" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
