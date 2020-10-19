@@ -14,6 +14,23 @@ It provides a number of helpful additions:
 2. Check for the existence of related models before soft deleting a model instance
 3. Emulate the cascade behaviour provided at the DB layer
 
+## Table of contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Use cases](#use-cases)
+  * [1. Avoid SQLSTATE[23000]: Integrity constraint violation](#1-avoid-sqlstate-23000---integrity-constraint-violation)
+  * [2. Check if a model is deletable](#2-check-if-a-model-is-deletable)
+  * [3. Validate deletes](#3-validate-deletes)
+- [Supported safeDelete modes (use when soft deleting)](#supported-safedelete-modes--use-when-soft-deleting-)
+  * [Exception mode (default)](#exception-mode--default-)
+  * [Cascade mode](#cascade-mode)
+  * [Custom mode](#custom-mode)
+- [Testing](#testing)
+- [Security](#security)
+- [Coffee Time](#coffee-time)
+- [License](#license)
+
 ## Installation
 
 Depending on which version of Laravel you're on, you may need to specify which version to install.
