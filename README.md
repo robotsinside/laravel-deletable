@@ -70,9 +70,9 @@ class Post extends Model
 
 ## Use cases
 
-### Scenario 1
+### 1. Avoid SQLSTATE[23000]: Integrity constraint violation
 
-A `Post` implements a HasMany relation with a `Like` model. The `likes` table contains a `post_id` foreign key contraint.
+A `Post` implements a HasMany relation with a `Like` model.
 
 ```php
 <?php 
@@ -129,15 +129,13 @@ Now we can display the Integrity contraint violation as validation errors instea
     @endif
 </div>
 
-// This Post has one or more Likes.
+// Output: This Post has one or more Likes.
 
 ```
 
-### Scenario 2
+### 2. Check if a model is deletable
 
-A `Post` implements a `BelongsToMany` relation with an `Author`. The `Post` model leverages Laravel's built in `SoftDeletes` trait. If the `Post` is related to one or more authors, soft deleting the post succeeds, even if a foreign key constraint exists at the database level.
-
-In some situations this might not be what you want and can be avoided by using the `deletable` method.
+This feature supports all relation types. It's particularly helpful when Laravel's soft deletes are in use, since soft-deleting always succeeds without throwing an Integrity Constraint Violation error.
 
 ```php
 <?php
@@ -153,7 +151,7 @@ if($post->deletable()) {
 }
 ```
 
-### Validation
+### 3. Validate deletes
 
 To validate delete requests, you can type-hint the provided `RobotsInside\Deletable\Requests\DeletableRequest` class in your controller method.
 
@@ -215,7 +213,7 @@ class PostContoller extends Controller
 }
 ```
 
-### Supported safeDelete modes (use when soft deleting)
+## Supported safeDelete modes (use when soft deleting)
 
 When using the safeDelete method, you have the option of defining a mode to be used when deleting a record. The mode can be set on the model's `deletableConfig` array.
 
@@ -225,7 +223,7 @@ When using the safeDelete method, you have the option of defining a mode to be u
 
 Note that the `mode` configuration key can be left empty in `exception` mode, but must be set for `cascade` and `custom` modes.
 
-#### Exception mode (default)
+### Exception mode (default)
 
 Soft deleting a model in this situation will fail. If the model in question is referenced by another model, an `UnsafeDeleteException` will be thrown.
 
@@ -239,7 +237,7 @@ $post->authors()->save($author);
 Post::find(1)->safeDelete(); // UnsafeDeleteException
 ```
 
-#### Cascade mode
+### Cascade mode
 
 In this mode related models will also be deleted.
 
@@ -255,7 +253,7 @@ $post->authors()->save($author);
 Post::find(1)->safeDelete(); // My Post and Billy Bob will be deleted.
 ```
 
-#### Custom mode
+### Custom mode
 
 1. Set mode to `custom`.
 2. Set the handler method
