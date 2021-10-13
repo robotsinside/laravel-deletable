@@ -29,7 +29,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.3",
+        "nunomaduro/larastan": "^0.7.12"
     },
     "autoload-dev": {
         "classmap": [
