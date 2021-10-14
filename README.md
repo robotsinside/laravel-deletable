@@ -84,7 +84,7 @@ class Post extends Model
 A `Post` implements a HasMany relation with a `Like` model.
 
 ```php
-<?php 
+<?php
 
 $post = Post::create(['title' => 'My post']);
 
@@ -164,13 +164,13 @@ if($post->deletable()) {
 
 To validate delete requests, you can type-hint the provided `RobotsInside\Deletable\Requests\DeletableRequest` class in your controller method.
 
-This class will attempt to automatically resolve the model's route binding, however it currently only supports a single URI route binding. 
+This class will attempt to automatically resolve the model's route binding, however it currently only supports a single URI route binding.
 
 ```sh
-+-----------+--------------+---------------+----------------------------------------------   
-| Method    | URI          | Name          | Action                                          
 +-----------+--------------+---------------+----------------------------------------------
-| DELETE    | posts/{post} | posts.destroy | App\Http\Controllers\PostController@destroy   
+| Method    | URI          | Name          | Action
++-----------+--------------+---------------+----------------------------------------------
+| DELETE    | posts/{post} | posts.destroy | App\Http\Controllers\PostController@destroy
 ```
 
 If your route has more than one binding, such as `authors/{author}/posts/{post}`, you'll need to create your own form request, which extends `DeletableRequest` and define a `getRouteModel` method which returns the models' route binding.
@@ -220,6 +220,37 @@ class PostContoller extends Controller
         return back();
     }
 }
+```
+
+#### Customising the validation messages
+If you don't want to rely on the default validation messages, you can define a `deletableValidationMessage` method on your model. You are free to add custom messages for each related model that is preventing a delete.
+
+```php
+<?php
+
+namespace App\Models\Post;
+
+use Illuminate\Database\Eloquent\Model;
+use RobotsInside\Deletable\Deletable;
+
+class Post extends Model
+{
+    use Deletable;
+
+    public function deletableValidationMessage($model)
+    {
+        switch ($model) {
+            case Like::class:
+                return 'Posts with likes cannot be deleted.';
+                break;
+            case Author::class:
+                return 'Posts written by authors cannot be deleted.';
+                break;
+            default:
+                return 'This model cannot be deleted.';
+                break;
+        }
+    }
 ```
 
 ## Supported safeDelete modes (use when soft deleting)

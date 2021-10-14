@@ -61,6 +61,10 @@ class DeletableRule implements Rule
      */
     public function message()
     {
+        if (method_exists($this->model, 'deletableValidationMessage')) {
+            return $this->model->deletableValidationMessage($this->relatedModel);
+        }
+
         return sprintf('This %s %s %s.', class_basename(get_class($this->model)), $this->association(), Str::plural(class_basename($this->relatedModel)));
     }
 
