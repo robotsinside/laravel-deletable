@@ -32,13 +32,6 @@ It provides a number of helpful additions:
 
 ## Installation
 
-Depending on which version of Laravel you're on, you may need to specify which version to install.
-
-| Laravel Version | Package Version |
-|:---------------:|:---------------:|
-|       8.0       |      ^1.0       |
-|       7.0       |      ^0.1       |
-
 1. Run `composer require robotsinside/laravel-deletable`.
 
 2. Optionally register the service provider in `config/app.php`
@@ -68,7 +61,7 @@ class Post extends Model
 {
     use Deletable, SoftDeletes;
 
-    protected function deletableConfig()
+    protected function deletableConfig(): array
     {
         return [
             'relations' => [
