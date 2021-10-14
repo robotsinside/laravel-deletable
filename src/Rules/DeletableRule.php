@@ -18,14 +18,14 @@ class DeletableRule implements Rule
     /**
      * The Eloquent relation type.
      *
-     * @var Illuminate\Database\Eloquent\Relations\Relation
+     * @var mixed
      */
     protected $relation;
 
     /**
      * The dependent model.
      *
-     * @var Model
+     * @var mixed
      */
     protected $relatedModel;
 
@@ -71,15 +71,11 @@ class DeletableRule implements Rule
      */
     private function association()
     {
-        if(Str::contains($this->relation, 'BelongsToMany')) {
+        if (Str::contains($this->relation, 'BelongsToMany')) {
             return 'belongs to one or more';
-        }
-
-        if(Str::contains($this->relation, 'HasMany')) {
+        } elseif (Str::contains($this->relation, 'HasMany')) {
             return 'has one or more';
-        }
-
-        if(Str::contains($this->relation, 'Morph')) {
+        } else {
             return 'is associated with one or more';
         }
     }

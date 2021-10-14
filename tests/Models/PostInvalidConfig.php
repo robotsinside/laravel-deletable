@@ -6,7 +6,7 @@ class PostInvalidConfig extends Post
 {
     protected $table = 'posts';
 
-    protected function deletableConfig()
+    protected function deletableConfig(): array
     {
         return [
             'mode' => 'badmethod',

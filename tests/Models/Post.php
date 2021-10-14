@@ -12,7 +12,7 @@ class Post extends Model
 
     protected $connection = 'testbench';
 
-    protected function deletableConfig()
+    protected function deletableConfig(): array
     {
         return [
             'mode' => 'exception',

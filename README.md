@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/robotsinside/laravel-deletable.svg?style=flat-square)](https://packagist.org/packages/robotsinside/laravel-deletable)
 [![Build Status](https://img.shields.io/travis/robotsinside/laravel-deletable/master.svg?style=flat-square)](https://travis-ci.org/robotsinside/laravel-deletable)
-[![Quality Score](https://img.shields.io/scrutinizer/g/robotsinside/laravel-deletable.svg?style=flat-square)](https://scrutinizer-ci.com/g/robotsinside/laravel-deletable)
 [![Total Downloads](https://img.shields.io/packagist/dt/robotsinside/laravel-deletable.svg?style=flat-square)](https://packagist.org/packages/robotsinside/laravel-deletable)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 

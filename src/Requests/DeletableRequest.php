@@ -17,14 +17,14 @@ class DeletableRequest extends FormRequest
     /**
      * A model instance.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var mixed
      */
     protected $routeModel;
 
     /**
      * The dependant models as per config.
      *
-     * @var Collection
+     * @var \Illuminate\Support\Collection
      */
     protected $dependants;
 
@@ -43,11 +43,11 @@ class DeletableRequest extends FormRequest
      * Guess the route binding.
      *
      * @throws UnresolvedRouteBindingException
-     * @return string
+     * @return int|string
      */
     protected function guessRouteBinding()
     {
-        if(count($this->request->route()->parameters())) {
+        if (count($this->request->route()->parameters())) {
             return array_keys($this->request->route()->parameters())[0];
         }
 

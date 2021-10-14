@@ -4,8 +4,7 @@ namespace RobotsInside\Deletable\Exceptions;
 
 namespace Exceptions;
 
-class UnresolvedRouteBindingException
+class UnresolvedRouteBindingException extends \Exception
 {
     //
 }
-
