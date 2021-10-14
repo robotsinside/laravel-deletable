@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-deletable` will be documented in this file.
 
+## 1.1.1 - 2021-10-14
+
+- Add PHPStan, code quality improvements
+
+## 1.1.0 - 2021-10-11
+
+- Add PHP 7.4, 8.0 support
+
 ## 1.0.0 - 2020-9-20
 
 - Add Laravel 8 support
