@@ -21,7 +21,7 @@ It provides a number of helpful additions:
   * [1. Avoid SQLSTATE[23000]: Integrity constraint violation](#1-avoid-sqlstate-23000---integrity-constraint-violation)
   * [2. Check if a model is deletable](#2-check-if-a-model-is-deletable)
   * [3. Validate deletes](#3-validate-deletes)
-  * [4. Customising the validation message](4-customising-the-validation-messages)
+  * [4. Customising the validation message](#4-customising-the-validation-messages)
 - [Supported safeDelete modes (use when soft deleting)](#supported-safedelete-modes-use-when-soft-deleting)
   * [Exception mode (default)](#exception-mode-default)
   * [Cascade mode](#cascade-mode)
