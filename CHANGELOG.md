@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-deletable` will be documented in this file.
 
+## 1.3.1 - 2021-11-24
+
+- Fix undefined request route bindings
 ## 1.3.0 - 2021-10-14
 
 - Added support for custom validation messages

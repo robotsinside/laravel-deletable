@@ -47,12 +47,12 @@ class DeletableRequest extends FormRequest
      */
     protected function guessRouteBinding()
     {
-        if (count($this->request->route()->parameters())) {
-            return array_keys($this->request->route()->parameters())[0];
+        if (method_exists($this, 'getRouteModel')) {
+            return $this->getRouteModel();
         }
 
-        if (method_exists($this, 'routeBinding')) {
-            return $this->routeBinding();
+        if (count($this->request->route()->parameters())) {
+            return array_keys($this->request->route()->parameters())[0];
         }
 
         throw new UnresolvedRouteBindingException();
