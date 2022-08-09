@@ -40,7 +40,7 @@ jobs:
       - name: Create database
         run: |
           sudo /etc/init.d/mysql start
-          mysql  -u root -proot -e 'CREATE DATABASE IF NOT EXISTS laravel_categories;'
+          mysql  -u root -proot -e 'CREATE DATABASE IF NOT EXISTS laravel_deletable;'
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
